@@ -1,9 +1,73 @@
 #!/bin/bash
 # vim: noexpandtab
 
+<<<<<<< HEAD
 # go to the absolute path of menu.sh
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CURRENT_BRANCH=$(git name-rev --name-only HEAD)
+=======
+#get path of menu correct
+pushd ~/IOTstack
+
+declare -A cont_array=(
+	[portainer]="Portainer"
+	[nginx-proxy]="Nginx Reverse Proxy"
+	[nodered]="Node-RED"
+	[influxdb]="InfluxDB"
+	[telegraf]="Telegraf (Requires InfluxDB and Mosquitto)"
+	[grafana]="Grafana"
+	[mosquitto]="Eclipse-Mosquitto"
+	[postgres]="Postgres"
+	[mariadb]="MariaDB (MySQL fork)"
+	[adminer]="Adminer"
+	[openhab]="openHAB"
+	[zigbee2mqtt]="zigbee2mqtt"
+	[pihole]="Pi-Hole"
+	[plex]="Plex media server"
+	[tasmoadmin]="TasmoAdmin"
+	[rtl_433]="RTL_433 to mqtt"
+	[espruinohub]="EspruinoHub"
+	[motioneye]="motionEye"
+	[webthings_gateway]="Mozilla webthings-gateway"
+	[blynk_server]="blynk-server"
+	[nextcloud]="Next-Cloud"
+	[nginx]="NGINX by linuxserver"
+	[diyhue]="diyHue"
+	[homebridge]="Homebridge"
+	[python]="Python 3"
+	[gitea]="Gitea"
+)
+
+declare -a armhf_keys=(
+	"portainer"
+  "nginx-proxy"
+	"nodered"
+	"influxdb"
+	"grafana"
+	"mosquitto"
+	"telegraf"
+	"mariadb"
+	"postgres"
+	"adminer"
+	"openhab"
+	"zigbee2mqtt"
+	"pihole"
+	"plex"
+	"tasmoadmin"
+	"rtl_433"
+	"espruinohub"
+	"motioneye"
+	"webthings_gateway"
+	"blynk_server"
+	"nextcloud"
+	"diyhue"
+	"homebridge"
+	"python"
+	"gitea"
+	# add yours here
+)
+sys_arch=$(uname -m)
+>>>>>>> 5940275e8c1c6b88c25ab8f0a84ef85650e9f62f
 
 # Minimum Software Versions
 REQ_DOCKER_VERSION=18.2.0

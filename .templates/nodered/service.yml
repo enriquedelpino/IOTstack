@@ -20,4 +20,6 @@ nodered:
 #    - "/dev/ttyAMA0:/dev/ttyAMA0"
 #    - "/dev/vcio:/dev/vcio"
 #    - "/dev/gpiomem:/dev/gpiomem"
-
+  environment:
+    - VIRTUAL_HOST=~^nodered\..*\.xip\.io
+    - VIRTUAL_PORT=1880

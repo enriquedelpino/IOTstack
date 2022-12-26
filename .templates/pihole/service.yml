@@ -19,4 +19,6 @@ pihole:
   cap_add:
     - NET_ADMIN
   restart: unless-stopped
-
+  environment:
+    - VIRTUAL_HOST=~^pihole\..*\.xip\.io
+    - VIRTUAL_PORT=8089

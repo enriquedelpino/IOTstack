@@ -10,6 +10,7 @@ addons:
     - "node-red-node-rbe"
     - "node-red-configurable-ping"
     - "node-red-dashboard"
+    - "node-red-contrib-modbustcp"
   default_off:
     - "node-red-node-pi-gpiod"
     - "node-red-node-openweathermap"

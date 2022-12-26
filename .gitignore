@@ -1,5 +1,4 @@
 #ignore data folders for containers
-/.idea/*
 /services/
 /volumes/
 /backups/
@@ -21,4 +20,4 @@ post_restore.sh
 
 .vscode
 *.code-workspace
-
+.idea

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 nextcloud:
   container_name: nextcloud
   image: nextcloud
@@ -16,6 +17,23 @@ nextcloud:
   networks:
     - default
     - nextcloud
+=======
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    ports:
+      - 9321:80
+    volumes:
+      - ./volumes/nextcloud/html:/var/www/html
+    restart: unless-stopped
+    depends_on: 
+      - nextcloud_db
+    links:
+      - nextcloud_db
+    environment:
+      - VIRTUAL_HOST=~^nextcloud\..*\.xip\.io
+      - VIRTUAL_PORT=9321
+>>>>>>> 5940275e8c1c6b88c25ab8f0a84ef85650e9f62f
 
 nextcloud_db:
   container_name: nextcloud_db

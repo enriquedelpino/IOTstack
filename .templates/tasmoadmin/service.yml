@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 tasmoadmin:
   container_name: tasmoadmin
   image: ghcr.io/tasmoadmin/tasmoadmin:latest
@@ -9,3 +10,17 @@ tasmoadmin:
   volumes:
     - ./volumes/tasmoadmin/data:/data
 
+=======
+  tasmoadmin:
+    container_name: tasmoadmin
+    image: raymondmm/tasmoadmin
+    restart: unless-stopped
+    ports:
+      - "8088:80"
+    volumes:
+      - ./volumes/tasmoadmin/data:/data
+    environment:
+      - VIRTUAL_HOST=~^tasmoadmin\..*\.xip\.io
+      - VIRTUAL_PORT=8088
+      
+>>>>>>> 5940275e8c1c6b88c25ab8f0a84ef85650e9f62f

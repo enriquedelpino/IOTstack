@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 diyhue:
   container_name: diyhue
   image: diyhue/core:latest
@@ -13,3 +14,22 @@ diyhue:
       - ./volumes/diyhue:/opt/hue-emulator/export
   restart: unless-stopped
 
+=======
+  diyhue:
+    container_name: diyhue
+    image: diyhue/core:latest
+    ports:
+      - "8070:80/tcp"
+      - "1900:1900/udp"
+      - "1982:1982/udp"
+      - "2100:2100/udp"
+      # - "443:443/tcp"
+    env_file:
+      - ./services/diyhue/diyhue.env
+    environment:
+      - VIRTUAL_HOST=~^diyhue\..*\.xip\.io
+      - VIRTUAL_PORT=8070
+    volumes:
+       - ./volumes/diyhue/:/opt/hue-emulator/export/
+    restart: unless-stopped
+>>>>>>> 5940275e8c1c6b88c25ab8f0a84ef85650e9f62f

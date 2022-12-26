@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 grafana:
   container_name: grafana
   image: grafana/grafana
@@ -19,3 +20,20 @@ grafana:
     retries: 3
     start_period: 30s
 
+=======
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:6.3.6
+    restart: unless-stopped
+    user: "0"
+    ports:
+      - 3000:3000
+    env_file:
+      - ./services/grafana/grafana.env
+    environment:
+      - VIRTUAL_HOST=~^grafana\..*\.xip\.io
+      - VIRTUAL_PORT=3000
+    volumes:
+      - ./volumes/grafana/data:/var/lib/grafana
+      - ./volumes/grafana/log:/var/log/grafana
+>>>>>>> 5940275e8c1c6b88c25ab8f0a84ef85650e9f62f

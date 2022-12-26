@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 homebridge:
   container_name: homebridge
   image: oznu/homebridge:latest
@@ -12,3 +13,17 @@ homebridge:
     - ./volumes/homebridge:/homebridge
   network_mode: host
 
+=======
+  homebridge:
+    container_name: homebridge
+    image: oznu/homebridge:no-avahi-arm32v6
+    restart: unless-stopped
+    ports:
+      - 8380:8080
+    env_file: ./services/homebridge/homebridge.env
+    environment:
+      - VIRTUAL_HOST=~^homebridge\..*\.xip\.io
+      - VIRTUAL_PORT=8380
+    volumes:
+      - ./volumes/homebridge:/homebridge
+>>>>>>> 5940275e8c1c6b88c25ab8f0a84ef85650e9f62f

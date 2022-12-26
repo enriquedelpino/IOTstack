@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 openhab:
   container_name: openhab
   image: "openhab/openhab:latest"
@@ -18,3 +19,30 @@ openhab:
 #     max-size: "5m"
 #     max-file: "3"
 
+=======
+  openhab:
+    image: "openhab/openhab:2.5.3"
+    container_name: openhab
+    restart: unless-stopped
+#    network_mode: host
+#    cap_add:
+#      - NET_ADMIN
+#      - NET_RAW
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "./volumes/openhab/addons:/openhab/addons"
+      - "./volumes/openhab/conf:/openhab/conf"
+      - "./volumes/openhab/userdata:/openhab/userdata"
+    environment:
+      OPENHAB_HTTP_PORT: "8080"
+      OPENHAB_HTTPS_PORT: "8443"
+      EXTRA_JAVA_OPTS: "-Duser.timezone=Europe/Berlin"
+    environment:
+      - VIRTUAL_HOST=~^openhab\..*\.xip\.io
+      - VIRTUAL_PORT=8080
+
+#    # The command node is very important. It overrides
+#    # the "gosu openhab tini -s ./start.sh" command from Dockerfile and runs as root!
+#    command: "tini -s ./start.sh server"
+>>>>>>> 5940275e8c1c6b88c25ab8f0a84ef85650e9f62f

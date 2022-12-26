@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 adminer:
   container_name: adminer
   image: adminer
@@ -5,3 +6,14 @@ adminer:
   ports:
     - "9080:8080"
 
+=======
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 9080:8080
+    environment:
+      - VIRTUAL_HOST=~^adminer\..*\.xip\.io
+      - VIRTUAL_PORT=9080
+>>>>>>> 5940275e8c1c6b88c25ab8f0a84ef85650e9f62f

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 nodered:
   container_name: nodered
   build:
@@ -21,3 +22,19 @@ nodered:
 #    - "/dev/vcio:/dev/vcio"
 #    - "/dev/gpiomem:/dev/gpiomem"
 
+=======
+  nodered:
+    container_name: nodered
+    build: ./services/nodered/.
+    restart: unless-stopped
+    user: "0"
+    privileged: true
+    env_file: ./services/nodered/nodered.env
+    environment:
+      - VIRTUAL_HOST=~^nodered\..*\.xip\.io
+      - VIRTUAL_PORT=1880
+    ports:
+      - 1880:1880
+    volumes:
+      - ./volumes/nodered/data:/data
+>>>>>>> 5940275e8c1c6b88c25ab8f0a84ef85650e9f62f

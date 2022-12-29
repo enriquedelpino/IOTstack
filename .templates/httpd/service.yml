@@ -1,7 +1,9 @@
-apache:
-  image: httpd:latest
+httpd:
   container_name: httpd
+  image: httpd:latest
+  restart: unless-stopped
   ports:
     - "8080:80"
   volumes:
     - ./volumes/httpd/website:/usr/local/apache2/htdocs
+

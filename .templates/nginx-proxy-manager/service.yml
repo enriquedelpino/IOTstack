@@ -1,5 +1,9 @@
 nginx-proxy-manager:
-  image: 'jc21/nginx-proxy-manager:latest'
+  container_name: nginx-proxy-manager
+  build:
+    context: ./.templates/nginx-proxy-manager/.
+    args:
+      - NGINX_PROXY_MANAGER_BASE=jc21/nginx-proxy-manager:latest
   restart: unless-stopped
   ports:
     # These ports are in format <host-port>:<container-port>
@@ -19,5 +23,6 @@ nginx-proxy-manager:
   # DISABLE_IPV6: 'true'
 
   volumes:
-    - ./data:/data
+    - ./volumes/nginx/data/nginx/proxy_host:/data/nginx/proxy_host
+    - ./volumes/nginx/data:/data
     - ./letsencrypt:/etc/letsencrypt

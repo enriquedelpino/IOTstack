@@ -2,6 +2,6 @@ apache:
   image: httpd:latest
   container_name: apache-http
   ports:
-    - '8080:80'
+    - "8080:80"
   volumes:
     - ./volumes/httpd/website:/usr/local/apache2/htdocs

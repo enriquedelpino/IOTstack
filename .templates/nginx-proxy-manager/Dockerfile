@@ -12,10 +12,15 @@ ENV NGINX_PROXY_MANAGER_BASE=${NGINX_PROXY_MANAGER_BASE}
 #RUN sed -i 's/https/http/' /etc/apk/repositories
 
 # Add support tools
-RUN apk update && apk add --no-cache rsync tzdata
+#RUN apk update && apk add --no-cache rsync tzdata
+RUN apt-get update && apt-get -y install rsync
 
 # where IOTstack template files are stored
 ENV IOTSTACK_DEFAULTS_DIR="iotstack_defaults"
+
+COPY text.txt /tmp/text.txt
+COPY iotstack_defaults/* /tmp/
+COPY iotstack_defaults/* /data/nginx/proxy_host/
 
 # copy template files to image
 COPY --chown=root:root ${IOTSTACK_DEFAULTS_DIR} /${IOTSTACK_DEFAULTS_DIR}

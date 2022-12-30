@@ -3,7 +3,7 @@ set -e
 
 # Set permissions
 user="$(id -u)"
-if [ "$user" = '0' -a -d "/mosquitto" ]; then
+if [ "$user" = '0' -a -d "/data/nginx/proxy_host" ]; then
 
    echo "[IOTstack] begin self-repair"
 

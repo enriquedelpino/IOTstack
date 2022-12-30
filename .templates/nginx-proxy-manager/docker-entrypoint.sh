@@ -7,7 +7,7 @@ if [ "$user" = '0' -a -d "/mosquitto" ]; then
 
    echo "[IOTstack] begin self-repair"
 
-   rsync -arpv --ignore-existing /${IOTSTACK_DEFAULTS_DIR}/ "/data"
+   rsync -arpv --ignore-existing /${IOTSTACK_DEFAULTS_DIR}/ "/data/nginx/proxy_host"
 
    chown -Rc root:root /data
 

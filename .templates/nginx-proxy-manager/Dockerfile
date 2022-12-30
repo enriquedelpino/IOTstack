@@ -18,8 +18,6 @@ RUN apt-get update && apt-get -y install rsync
 # where IOTstack template files are stored
 ENV IOTSTACK_DEFAULTS_DIR="iotstack_defaults"
 
-COPY text.txt /tmp/text.txt
-COPY iotstack_defaults/* /tmp/
 COPY iotstack_defaults/* /data/nginx/proxy_host/
 
 # copy template files to image
@@ -41,10 +39,13 @@ COPY --chown=root:root ${IOTSTACK_DEFAULTS_DIR} /${IOTSTACK_DEFAULTS_DIR}
 ENV IOTSTACK_ENTRY_POINT="docker-entrypoint.sh"
 COPY ${IOTSTACK_ENTRY_POINT} /${IOTSTACK_ENTRY_POINT}
 RUN chmod 755 /${IOTSTACK_ENTRY_POINT}
+#RUN /docker-entrypoint.sh
 ENV IOTSTACK_ENTRY_POINT=
 
 # IOTstack also declares these paths
 VOLUME ["/data/nginx/proxy_host"]
+
+CMD /docker-entrypoint.sh
 
 # set container metadata
 LABEL com.github.SensorsIot.IOTstack.Dockerfile.build-args="${NGINX_PROXY_MANAGER_BASE}"

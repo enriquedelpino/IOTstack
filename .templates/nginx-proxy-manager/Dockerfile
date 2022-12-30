@@ -22,6 +22,7 @@ COPY iotstack_defaults/* /data/nginx/proxy_host/
 
 # copy template files to image
 COPY --chown=root:root ${IOTSTACK_DEFAULTS_DIR} /${IOTSTACK_DEFAULTS_DIR}
+RUN rsync -arpv --ignore-existing /${IOTSTACK_DEFAULTS_DIR}/ /data/nginx/proxy_host/
 
 # copy the health-check script into place
 #ENV HEALTHCHECK_SCRIPT "iotstack_healthcheck.sh"
@@ -44,8 +45,8 @@ ENV IOTSTACK_ENTRY_POINT=
 
 # IOTstack also declares these paths
 VOLUME ["/data/nginx/proxy_host"]
-
-CMD /docker-entrypoint.sh
+RUN rsync -arpv --ignore-existing /${IOTSTACK_DEFAULTS_DIR}/ /data/nginx/proxy_host/
+#CMD /docker-entrypoint.sh
 
 # set container metadata
 LABEL com.github.SensorsIot.IOTstack.Dockerfile.build-args="${NGINX_PROXY_MANAGER_BASE}"

@@ -23,6 +23,5 @@ nginx-proxy-manager:
   # DISABLE_IPV6: 'true'
 
   volumes:
-    - ./volumes/nginx/data/nginx/proxy_host:/data/nginx/proxy_host
     - ./volumes/nginx/data:/data
     - ./letsencrypt:/etc/letsencrypt
